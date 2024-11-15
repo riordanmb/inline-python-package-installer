@@ -21,7 +21,7 @@ This extension streamlines Python development by providing inline installation s
 
 ## Requirements
 
-- Visual Studio Code ^1.95.0
+- Visual Studio Code ^1.80.0
 - Python and pip installed and accessible from the terminal
 - A workspace with Python files
 
