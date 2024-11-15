@@ -1,0 +1,71 @@
+{
+  "name": "inline-python-package-installer",
+  "displayName": "Inline Python Package Installer",
+  "description": "Automatically detects and installs missing Python modules.",
+  "icon": "icon.png",
+  "version": "0.0.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/riordanmb/inline-python-package-installer.git"
+  },
+  "publisher": "riordanmb",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:python"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.installModule",
+        "title": "Install Missing Python Module"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Inline Python Package Installer",
+      "properties": {
+        "inlinePythonPackageInstaller.autoInstallModules": {
+          "type": "boolean",
+          "default": false,
+          "description": "Automatically install missing Python modules without prompting."
+        },
+        "inlinePythonPackageInstaller.customPipCommand": {
+          "type": "string",
+          "default": "pip install",
+          "description": "Custom pip command for installing modules."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "yarn run compile-tests && yarn run compile && yarn run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.95.0",
+    "@types/mocha": "^10.0.9",
+    "@types/node": "20.x",
+    "@typescript-eslint/eslint-plugin": "^8.10.0",
+    "@typescript-eslint/parser": "^8.7.0",
+    "eslint": "^9.13.0",
+    "typescript": "^5.6.3",
+    "ts-loader": "^9.5.1",
+    "webpack": "^5.95.0",
+    "webpack-cli": "^5.1.4",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1"
+  }
+}
