@@ -1,9 +1,10 @@
-dist
-out
-node_modules
+dist/
+out/
+node_modules/
+.vscode/
 .vscode-test/
 *.vsix
 .DS_Store
-coverage
-.nyc_output
-.history
+coverage/
+.nyc_output/
+.history/
