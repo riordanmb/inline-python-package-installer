@@ -8,7 +8,8 @@ export function activate(context: vscode.ExtensionContext) {
 
   const installModuleCommand = vscode.commands.registerCommand('extension.installModule', async (moduleName: string) => {
     const config = vscode.workspace.getConfiguration('inlinePythonPackageInstaller');
-    const autoInstall = config.get<boolean>('autoInstallModules', false);
+    // Fix the setting name to match package.json
+    const autoInstall = config.get<boolean>('autoInstall', false);
     const customPipCommand = config.get<string>('customPipCommand', 'pip install');
 
     const terminal = vscode.window.createTerminal(`Install: ${moduleName}`);
@@ -51,11 +52,16 @@ class MissingImportProvider implements vscode.CodeActionProvider {
     this.outputChannel = outputChannel;
   }
 
-  provideCodeActions(document: vscode.TextDocument, range: vscode.Range): vscode.CodeAction[] | undefined {
+  provideCodeActions(
+    document: vscode.TextDocument, 
+    range: vscode.Range | vscode.Selection,
+    context: vscode.CodeActionContext,
+    token: vscode.CancellationToken
+  ): vscode.CodeAction[] | undefined {
     const line = document.lineAt(range.start.line);
     const importMatch = line.text.match(/^import (\w+)|^from (\w+) import/);
     if (!importMatch) {
-      return;
+      return undefined;
     }
     const moduleName = importMatch[1] || importMatch[2];
     const installAction = new vscode.CodeAction(
