@@ -3,7 +3,7 @@
   "displayName": "Inline Python Package Installer",
   "description": "Automatically detects and installs missing Python modules.",
   "icon": "icon.png",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "repository": {
     "type": "git",
     "url": "https://github.com/riordanmb/inline-python-package-installer.git"

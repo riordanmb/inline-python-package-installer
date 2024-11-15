@@ -1,8 +1,10 @@
 # Changelog
 
-## 0.0.4 - Typo Fix
+## 0.0.4-0.0.6 - Typo Fixes
 
-- Updated README.md file to reflect change in release 0.0.3
+- [Updated README.md file](README.md) to reflect change in release 0.0.3
+- [Added reference to CHANGELOG.md file](CHANGELOG.md) in [README.md](README.md) to avoid duplication
+- Minor typo fixes in [README.md](README.md) and [CHANGELOG.md](CHANGELOG.md) files
 
 ## 0.0.3 - Compatibility Fix
 

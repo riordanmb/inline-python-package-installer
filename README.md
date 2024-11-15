@@ -111,7 +111,7 @@ yarn watch-tests
 
 ```bash
 vsce package
-
+```
 
 4. Publish to marketplace:
 
@@ -132,6 +132,10 @@ vsce publish
 [MIT License](LICENSE)
 
 ## Release Notes
+
+### 0.0.3 - 0.0.x
+
+See [CHANGELOG.md](CHANGELOG.md) for detailed release notes.
 
 ### 0.0.2
 
